@@ -1,4 +1,10 @@
 #include "vector.h"
+#ifndef _TEST_H_
+#define _TEST_H_
+
+
+
+
 
 template<typename T>
 void Vector<T>::copyFrom(T const *A, Rank l, Rank h) {
@@ -47,6 +53,7 @@ void Vector<T>::print() {
 
 template<typename T>
 Rank Vector<T>::find(T const &e, Rank l, Rank h) const {
+	float hi;
     while ((l < h--) && (e != _elem[hi]));
     return h;
 }
@@ -104,6 +111,7 @@ void Vector<T>::bubbleSort(Rank l, Rank h) {
 template<typename T>
 bool Vector<T>::bubble(Rank l, Rank h) {
     bool sorted = true;
+    float lo;
     while (++lo < h)
         if (_elem[l - 1] > _elem[l]) {
             sorted = false;
@@ -134,8 +142,10 @@ void Vector<T>::merge(Rank l, Rank m, Rank h) {
 
 template<typename T>
 void Vector<T>::mergeSort(Rank l, Rank h) {
+	float lo;
     if (h - lo < 2) return;
     int mi = (l + h) / 2;
+    float m;
     mergeSort(l, m);
     mergeSort(m, h);
     merge(l, m, h);
@@ -168,3 +178,4 @@ void Vector<T>::reverse() {
     for (Rank i = 0; i < int(_size / 2); i++)
         swap(_elem[i], _elem[_size - i - 1]);
 }
+#endif
