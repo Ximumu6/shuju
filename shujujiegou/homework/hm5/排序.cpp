@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// Éú³ÉËæ»úĞòÁĞ
+// ç”Ÿæˆéšæœºåºåˆ—
 void generateRandomArray(int arr[], int n) {
     srand(time(0));
     for (int i = 0; i < n; i++) {
@@ -14,16 +14,16 @@ void generateRandomArray(int arr[], int n) {
     }
 }
 
-// Éú³ÉÄæĞòĞòÁĞ
+// ç”Ÿæˆé€†åºåºåˆ—
 void generateReverseArray(int arr[], int n) {
     for (int i = 0; i < n; i++) {
         arr[i] = n - i;
     }
 }
 
-// Ë³ĞòĞòÁĞÒÑ¾­Ìá¹©£¬ÎŞĞèÉú³É
+// é¡ºåºåºåˆ—å·²ç»æä¾›ï¼Œæ— éœ€ç”Ÿæˆ
 
-// ´òÓ¡Êı×éÇ°n¸öÔªËØ
+// æ‰“å°æ•°ç»„å‰nä¸ªå…ƒç´ 
 void printArray(int arr[], int n) {
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
@@ -31,7 +31,7 @@ void printArray(int arr[], int n) {
     cout << endl;
 }
 
-// £¨1£©ÆğÅİÅÅĞò
+// ï¼ˆ1ï¼‰èµ·æ³¡æ’åº
 void bubbleSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
@@ -42,7 +42,7 @@ void bubbleSort(int arr[], int n) {
     }
 }
 
-// £¨2£©²åÈëÅÅĞò
+// ï¼ˆ2ï¼‰æ’å…¥æ’åº
 void insertionSort(int arr[], int n) {
     for (int i = 1; i < n; i++) {
         int key = arr[i];
@@ -55,7 +55,7 @@ void insertionSort(int arr[], int n) {
     }
 }
 
-// £¨3£©Ñ¡ÔñÅÅĞò
+// ï¼ˆ3ï¼‰é€‰æ‹©æ’åº
 void selectionSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int minIndex = i;
@@ -70,7 +70,7 @@ void selectionSort(int arr[], int n) {
     }
 }
 
-// ¹é²¢ÅÅĞòĞèÒªÊ¹ÓÃµİ¹éÊµÏÖ£¬ĞèÒª²¹³ä¸¨Öúº¯Êımerge()
+// å½’å¹¶æ’åºéœ€è¦ä½¿ç”¨é€’å½’å®ç°ï¼Œéœ€è¦è¡¥å……è¾…åŠ©å‡½æ•°merge()
 void merge(int arr[], int left, int mid, int right) {
     int len1 = mid - left + 1, len2 = right - mid;
     int* L = new int[len1];
@@ -98,22 +98,22 @@ void merge(int arr[], int left, int mid, int right) {
     delete[] L, R;
 }
 
-// ¹é²¢ÅÅĞò
+// å½’å¹¶æ’åº
 void mergeSort(int arr[], int left, int right) {
     if (left >= right) {
-        return;  // ¿ÕĞòÁĞ»òÕßÖ»ÓĞÒ»¸öÔªËØµÄĞòÁĞ¿ÉÒÔÖ±½Ó·µ»Ø
+        return;  // ç©ºåºåˆ—æˆ–è€…åªæœ‰ä¸€ä¸ªå…ƒç´ çš„åºåˆ—å¯ä»¥ç›´æ¥è¿”å›
     }
     int mid = left + (right - left) / 2;
-    mergeSort(arr, left, mid);  // ·ÖÖÎ×ó°ë²¿·Ö
-    mergeSort(arr, mid + 1, right);  // ·ÖÖÎÓÒ°ë²¿·Ö
-    merge(arr, left, mid, right);  // ½«×óÓÒÁ½²¿·Ö¹é²¢
+    mergeSort(arr, left, mid);  // åˆ†æ²»å·¦åŠéƒ¨åˆ†
+    mergeSort(arr, mid + 1, right);  // åˆ†æ²»å³åŠéƒ¨åˆ†
+    merge(arr, left, mid, right);  // å°†å·¦å³ä¸¤éƒ¨åˆ†å½’å¹¶
 }
 
-// ¿ìËÙÅÅĞòĞèÒªÊ¹ÓÃµİ¹éÊµÏÖ£¬ĞèÒª²¹³ä¸¨Öúº¯Êıpartition()
+// å¿«é€Ÿæ’åºéœ€è¦ä½¿ç”¨é€’å½’å®ç°ï¼Œéœ€è¦è¡¥å……è¾…åŠ©å‡½æ•°partition()
 int partition(int arr[], int left, int right) {
-    int pivotIndex = left + rand() % (right - left + 1); // Ëæ»úÑ¡ÔñÊàÖáÔªËØ
+    int pivotIndex = left + rand() % (right - left + 1); // éšæœºé€‰æ‹©æ¢è½´å…ƒç´ 
     int pivotValue = arr[pivotIndex];
-    swap(arr[pivotIndex], arr[right]); // ½«ÊàÖáÔªËØ·Åµ½ĞòÁĞÄ©Î²
+    swap(arr[pivotIndex], arr[right]); // å°†æ¢è½´å…ƒç´ æ”¾åˆ°åºåˆ—æœ«å°¾
     int storeIndex = left;
     for (int i = left; i < right; i++) {
         if (arr[i] < pivotValue) {
@@ -121,7 +121,7 @@ int partition(int arr[], int left, int right) {
             storeIndex++;
         }
     }
-    swap(arr[right], arr[storeIndex]); // ½«ÊàÖáÔªËØ»»»ØÈ¥
+    swap(arr[right], arr[storeIndex]); // å°†æ¢è½´å…ƒç´ æ¢å›å»
     return storeIndex;
 }
 void mergesort(int arr[], int l, int r)
@@ -134,7 +134,7 @@ void mergesort(int arr[], int l, int r)
         merge(arr, l, m, r);
     }
 }
-// ¿ìËÙÅÅĞò
+// å¿«é€Ÿæ’åº
 void quickSort(int arr[], int left, int right) {
     if (left >= right) {
         return;
@@ -144,7 +144,7 @@ void quickSort(int arr[], int left, int right) {
     quickSort(arr, pivotIndex + 1, right);
 }
 
-// £¨6£©¶ÑÅÅĞòĞèÒª²¹³ä¸¨Öúº¯Êıheapify()ºÍbuildHeap()
+// ï¼ˆ6ï¼‰å †æ’åºéœ€è¦è¡¥å……è¾…åŠ©å‡½æ•°heapify()å’ŒbuildHeap()
 void heapify(int arr[], int n, int i) {
     int largest = i;
     int l = 2 * i + 1;
@@ -167,7 +167,7 @@ void buildHeap(int arr[], int n) {
     }
 }
 
-// ¶ÑÅÅĞò
+// å †æ’åº
 void heapSort(int arr[], int n) {
     buildHeap(arr, n);
     for (int i = n - 1; i >= 0; i--) {
@@ -191,107 +191,107 @@ void bak(int arr[], int arr2[], int size)
 }
 int main()
 {
-    // ´´½¨Ò»¸ö³¤¶ÈÎª1000µÄ?int?Êı×é
+    // åˆ›å»ºä¸€ä¸ªé•¿åº¦ä¸º1000çš„?int?æ•°ç»„
     int arr[1000];
-    // ÓÃËæ»úÊıÌî³äÊı×é
+    // ç”¨éšæœºæ•°å¡«å……æ•°ç»„
     srand(time(NULL));
     for (int i = 0; i < 1000; ++i)
     {
         arr[i] = rand() % 1000;
     }
-    // ±¸·İÊı×é
+    // å¤‡ä»½æ•°ç»„
     int arr2[1000];
     bak(arr, arr2, 1000);
-    // ·Ö±ğÓÃÃ°ÅİÅÅĞò¡¢Ñ¡ÔñÅÅĞò¡¢²åÈëÅÅĞò¡¢¹é²¢ÅÅĞò¡¢¿ìËÙÅÅĞò¶ÔÊı×é½øĞĞÅÅĞò£¬²¢Êä³ö?Ã¿ÖÖÅÅĞòËã·¨µÄÔËĞĞÊ±¼ä,µ¥Î»ÎªÄÉÃë
-    cout << "Ëæ»úÂÒĞòÊı×é£º" << endl;
+    // åˆ†åˆ«ç”¨å†’æ³¡æ’åºã€é€‰æ‹©æ’åºã€æ’å…¥æ’åºã€å½’å¹¶æ’åºã€å¿«é€Ÿæ’åºå¯¹æ•°ç»„è¿›è¡Œæ’åºï¼Œå¹¶è¾“å‡º?æ¯ç§æ’åºç®—æ³•çš„è¿è¡Œæ—¶é—´,å•ä½ä¸ºçº³ç§’
+    cout << "éšæœºä¹±åºæ•°ç»„ï¼š" << endl;
     auto start = chrono::steady_clock::now();
     bubbleSort(arr, 1000);
     auto end = chrono::steady_clock::now();
-    cout << "Ã°ÅİÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "å†’æ³¡æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     bak(arr2, arr, 1000);
     start = chrono::steady_clock::now();
     selectionSort(arr, 1000);
     end = chrono::steady_clock::now();
-    cout << "Ñ¡ÔñÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "é€‰æ‹©æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     bak(arr2, arr, 1000);
     start = chrono::steady_clock::now();
     insertionSort(arr, 1000);
     end = chrono::steady_clock::now();
-    cout << "²åÈëÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "æ’å…¥æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     bak(arr2, arr, 1000);
     start = chrono::steady_clock::now();
     mergesort(arr, 0, 999);
     end = chrono::steady_clock::now();
-    cout << "¹é²¢ÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "å½’å¹¶æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     bak(arr2, arr, 1000);
     start = chrono::steady_clock::now();
     quickSort(arr, 0, 999);
     end = chrono::steady_clock::now();
-    cout << "¿ìËÙÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "å¿«é€Ÿæ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     bak(arr2, arr, 1000);
     start = chrono::steady_clock::now();
     heapSort(arr, 999);
     end = chrono::steady_clock::now();
-    cout << "¶ÑÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
-    // Ë³ĞòÊı×é
-    cout << "Ë³ĞòÊı×é:" << endl;
+    cout << "å †æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    // é¡ºåºæ•°ç»„
+    cout << "é¡ºåºæ•°ç»„:" << endl;
     start = chrono::steady_clock::now();
     bubbleSort(arr, 1000);
     end = chrono::steady_clock::now();
-    cout << "Ã°ÅİÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "å†’æ³¡æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     start = chrono::steady_clock::now();
     selectionSort(arr, 1000);
     end = chrono::steady_clock::now();
-    cout << "Ñ¡ÔñÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "é€‰æ‹©æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     start = chrono::steady_clock::now();
     insertionSort(arr, 1000);
     end = chrono::steady_clock::now();
-    cout << "²åÈëÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "æ’å…¥æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     start = chrono::steady_clock::now();
     mergesort(arr, 0, 999);
     end = chrono::steady_clock::now();
-    cout << "¹é²¢ÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "å½’å¹¶æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     start = chrono::steady_clock::now();
     quickSort(arr, 0, 999);
     end = chrono::steady_clock::now();
-    cout << "¿ìËÙÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "å¿«é€Ÿæ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     start = chrono::steady_clock::now();
     heapSort(arr, 999);
     end = chrono::steady_clock::now();
-    cout << "¶ÑÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
-    // ·´×ªÊı×é
+    cout << "å †æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    // åè½¬æ•°ç»„
     reverse(arr, 1000);
     bak(arr, arr2, 1000);
-    // ÄæĞòÊı×é
-    cout << "ÄæĞòÊı×é:" << endl;
+    // é€†åºæ•°ç»„
+    cout << "é€†åºæ•°ç»„:" << endl;
     start = chrono::steady_clock::now();
     bubbleSort(arr, 1000);
     end = chrono::steady_clock::now();
-    cout << "Ã°ÅİÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "å†’æ³¡æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     bak(arr2, arr, 1000);
     start = chrono::steady_clock::now();
     selectionSort(arr, 1000);
     end = chrono::steady_clock::now();
-    cout << "Ñ¡ÔñÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "é€‰æ‹©æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     bak(arr2, arr, 1000);
     start = chrono::steady_clock::now();
     insertionSort(arr, 1000);
     end = chrono::steady_clock::now();
-    cout << "²åÈëÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "æ’å…¥æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     bak(arr2, arr, 1000);
     start = chrono::steady_clock::now();
     mergesort(arr, 0, 999);
     end = chrono::steady_clock::now();
-    cout << "¹é²¢ÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "å½’å¹¶æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     bak(arr2, arr, 1000);
     start = chrono::steady_clock::now();
     quickSort(arr, 0, 999);
     end = chrono::steady_clock::now();
-    cout << "¿ìËÙÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "å¿«é€Ÿæ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     bak(arr2, arr, 1000);
     start = chrono::steady_clock::now();
     heapSort(arr, 999);
     end = chrono::steady_clock::now();
-    cout << "¶ÑÅÅĞòÓÃÊ±£º" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
+    cout << "å †æ’åºç”¨æ—¶ï¼š" << chrono::duration_cast<chrono::nanoseconds>(end - start).count() << "ns" << endl;
     return 0;
 }
